@@ -6,12 +6,17 @@ const buttonStyles = cva(["hover:bg-gray-300"] /* Button base style array*/,
     {
         variants: {
             variant: {
-                default: ["bg-gray-200"],
-                transparent: []
+                default: ["bg-neutral-200 hover:bg-neutral-300"],
+                ghost: ["bg-neutral-100"]
             },
             size: {
                 default: ["rounded", "p-2"],
-                icon: ["rounded-full", "p-2.5"]
+                icon: [
+                    "flex", "justify-center", "items-center",
+                    "rounded-full",
+                    "w-10", "h-10",
+                    "p-2.5"
+                ]
             }
         },
         defaultVariants: {
