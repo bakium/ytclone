@@ -1,6 +1,9 @@
 function App() {
   return (
-    <h1>Youtube clone</h1>
+    <div className="container max-h-size flex flex-col">
+      <header>PageHeader</header>
+      <aside>Sidebar</aside>
+    </div>
   )
 }
 
