@@ -7,7 +7,7 @@ const PageHeader = () => {
           >:border-2 >:border-sky-500
         ">
             <section className="flex flex-shrink-0 gap-2">
-                <Button>
+                <Button size="icon">
                     <Menu />
                 </Button>
                 <a href="/">
