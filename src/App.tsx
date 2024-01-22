@@ -1,7 +1,9 @@
+import { PageHeader } from "./layouts/PageHeader"
+
 function App() {
   return (
     <div className="container max-h-size flex flex-col">
-      <header>PageHeader</header>
+      <PageHeader />
       <aside>Sidebar</aside>
     </div>
   )
