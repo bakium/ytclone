@@ -1,4 +1,5 @@
 import { Menu } from 'lucide-react'
+import { Button } from '../components/Button'
 
 const PageHeader = () => {
     return (
@@ -6,9 +7,9 @@ const PageHeader = () => {
           >:border-2 >:border-sky-500
         ">
             <section className="flex flex-shrink-0 gap-2">
-                <button>
+                <Button>
                     <Menu />
-                </button>
+                </Button>
                 <a href="/">
                     <img src="../../public/vite.svg" className="h-6" />
                 </a>
