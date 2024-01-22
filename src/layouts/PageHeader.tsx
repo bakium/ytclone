@@ -7,7 +7,7 @@ const PageHeader = () => {
           >:border-2 >:border-sky-500
         ">
             <section className="flex flex-shrink-0 gap-2">
-                <Button size="icon" className=''>
+                <Button size="icon" className='rounded'> {/* twMerge overiding*/}
                     <Menu />
                 </Button>
                 <a href="/">
