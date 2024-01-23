@@ -3,7 +3,7 @@ import { Button } from '../components/Button'
 
 const PageHeader = () => {
     return (
-        <header className="flex space-between gap-10 lg:gap-20
+        <header className="flex justify-between gap-10 lg:gap-20 pt-2 mb-6 mx-4
           >:border-2 >:border-sky-500
         ">
             <section className="flex flex-shrink-0 gap-2">
