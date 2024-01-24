@@ -11,7 +11,7 @@ const PageHeader = () => {
                     <Menu />
                 </Button>
                 <a href="/">
-                    <img src="../../public/vite.svg" className="h-6" />
+                    <img src="/vite.svg" className="h-6" />
                 </a>
             </section>
             <section>Middle section</section>
