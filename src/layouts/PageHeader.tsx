@@ -24,7 +24,7 @@ const PageHeader = () => {
                         <Search />
                     </Button>
                 </section>
-                <Button size="icon">
+                <Button type="button" size="icon">
                     <Mic />
                 </Button>
             </form>
