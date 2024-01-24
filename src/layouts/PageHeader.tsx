@@ -14,17 +14,18 @@ const PageHeader = () => {
                     <img src="/vite.svg" className="h-6" />
                 </a>
             </section>
-            <form>
-                <section>
+            <form className="flex justify-center flex-grow">
+                <section className="flex flex-grow max-w-[500px]">
                     <input
                         type="search"
                         placeholder="Search"
+                        className="w-full"
                     />
                     <Button>
                         <Search />
                     </Button>
                 </section>
-                <Button type="button" size="icon">
+                <Button type="button" size="icon" className="flex flex-shrink">
                     <Mic />
                 </Button>
             </form>
