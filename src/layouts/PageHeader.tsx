@@ -18,7 +18,9 @@ const PageHeader = () => {
                     <input
                         type="search"
                         placeholder="Search"
-                        className="w-full border-2 rounded-l-full py-1 text-lg px-4"
+                        className="w-full border-2 rounded-l-full py-1 text-lg px-4
+                         focus:border-blue-500 focus:outline-none
+                         "
                     />
                     <Button className="rounded-l-none">
                         <Search />
