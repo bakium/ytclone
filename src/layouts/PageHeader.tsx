@@ -21,9 +21,15 @@ const PageHeader = () => {
                         className="w-full border-2 rounded-l-full py-1 text-lg px-4
                          focus:border-blue-500 focus:outline-none
                          shadow-inner shadow-secondary-hover shadow-secondary
+                         border border-secondary-border
                          "
                     />
-                    <Button className="rounded-l-none">
+                    <Button
+                        className="
+                            rounded-r-full border border-l-0 border-secondary-border
+                            flex-shrink-0 py-2 px-4
+                        "
+                    >
                         <Search />
                     </Button>
                 </section>
