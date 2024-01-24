@@ -4,7 +4,6 @@ import { Button } from '../components/Button'
 const PageHeader = () => {
     return (
         <header className="flex justify-between gap-10 lg:gap-20 pt-2 mb-6 mx-4
-          >:border-2 >:border-sky-500
         ">
             <section className="flex flex-shrink-0 gap-2">
                 <Button variant="ghost" size="icon">
@@ -14,14 +13,14 @@ const PageHeader = () => {
                     <img src="/vite.svg" className="h-6" />
                 </a>
             </section>
-            <form className="flex justify-center flex-grow">
+            <form className="flex justify-center flex-grow gap-4">
                 <section className="flex flex-grow max-w-[500px]">
                     <input
                         type="search"
                         placeholder="Search"
-                        className="w-full"
+                        className="w-full border-2 rounded-l-full py-1 text-lg px-4"
                     />
-                    <Button>
+                    <Button className="rounded-l-none">
                         <Search />
                     </Button>
                 </section>
