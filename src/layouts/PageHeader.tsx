@@ -13,7 +13,7 @@ const PageHeader = () => {
                     <img src="/vite.svg" className="h-6" />
                 </a>
             </section>
-            <form className="flex justify-center flex-grow gap-4">
+            <form className="sm:flex hidden justify-center flex-grow gap-4">
                 <section className="flex flex-grow max-w-[500px]">
                     <input
                         type="search"
@@ -38,6 +38,8 @@ const PageHeader = () => {
                 </Button>
             </form>
             <section className="flex flex-row md:gap-2 flex-gap-4 flex-shrink-0">
+                <Button className="sm:hidden" size="icon" variant="ghost"><Search /></Button>
+                <Button className="sm:hidden" size="icon" variant="ghost"><Mic /></Button>
                 <Button size="icon" variant="ghost"><Video /></Button>
                 <Button size="icon" variant="ghost"><Bell /></Button>
                 <Button size="icon" variant="ghost"><User /></Button>
