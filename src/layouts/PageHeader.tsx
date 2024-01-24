@@ -1,11 +1,15 @@
 import { Bell, Menu, Mic, Search, User, Video } from 'lucide-react'
 import { Button } from '../components/Button'
+import { useState } from 'react'
 
 const PageHeader = () => {
+    const [showFullWidthSearch, setShowFullWidthSearch] = useState(false)
+
     return (
-        <header className="flex justify-between gap-10 lg:gap-20 pt-2 mb-6 mx-4
-        ">
-            <section className="flex flex-shrink-0 gap-2">
+        <header className="flex justify-between gap-10 lg:gap-20 pt-2 mb-6 mx-4">
+            <section className={`flex flex-shrink-0 gap-2
+                        ${showFullWidthSearch ? 'hidden' : 'flex'}
+            `}>
                 <Button variant="ghost" size="icon">
                     <Menu />
                 </Button>
@@ -37,8 +41,17 @@ const PageHeader = () => {
                     <Mic />
                 </Button>
             </form>
-            <section className="flex flex-row md:gap-2 flex-gap-4 flex-shrink-0">
-                <Button className="sm:hidden" size="icon" variant="ghost"><Search /></Button>
+            <section className={`flex-row md:gap-2 flex-gap-4 flex-shrink-0
+                ${showFullWidthSearch ? 'hidden' : 'flex'}
+            `}>
+                <Button
+                    className="sm:hidden"
+                    size="icon"
+                    variant="ghost"
+                    onClick={() => setShowFullWidthSearch(true)}
+                >
+                    <Search />
+                </Button>
                 <Button className="sm:hidden" size="icon" variant="ghost"><Mic /></Button>
                 <Button size="icon" variant="ghost"><Video /></Button>
                 <Button size="icon" variant="ghost"><Bell /></Button>
