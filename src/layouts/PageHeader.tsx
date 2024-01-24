@@ -20,6 +20,7 @@ const PageHeader = () => {
                         placeholder="Search"
                         className="w-full border-2 rounded-l-full py-1 text-lg px-4
                          focus:border-blue-500 focus:outline-none
+                         shadow-inner shadow-secondary-hover shadow-secondary
                          "
                     />
                     <Button className="rounded-l-none">
