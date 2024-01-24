@@ -15,7 +15,18 @@ const PageHeader = () => {
                 </a>
             </section>
             <form>
-                Form
+                <section>
+                    <input
+                        type="search"
+                        placeholder="Search"
+                    />
+                    <Button>
+                        <Search />
+                    </Button>
+                </section>
+                <Button size="icon">
+                    <Mic />
+                </Button>
             </form>
             <section className="flex flex-row md:gap-2 flex-gap-4 flex-shrink-0">
                 <Button size="icon" variant="ghost"><Video /></Button>
