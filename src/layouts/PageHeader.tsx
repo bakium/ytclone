@@ -1,4 +1,4 @@
-import { Bell, Menu, Mic, Search, User, Video } from 'lucide-react'
+import { ArrowLeft, Bell, Menu, Mic, Search, User, Video } from 'lucide-react'
 import { Button } from '../components/Button'
 import { useState } from 'react'
 
@@ -20,6 +20,12 @@ const PageHeader = () => {
             <form className={`justify-center flex-grow gap-4
             ${showFullWidthSearch ? 'flex' : 'sm:flex hidden'}
             `}>
+                {showFullWidthSearch && <Button variant="ghost" size="icon"
+                    onClick={() => setShowFullWidthSearch(false)}
+                >
+                    <ArrowLeft />
+                </Button>
+                }
                 <section className="flex flex-grow max-w-[500px]">
                     <input
                         type="search"
@@ -59,7 +65,7 @@ const PageHeader = () => {
                 <Button size="icon" variant="ghost"><Bell /></Button>
                 <Button size="icon" variant="ghost"><User /></Button>
             </section>
-        </header>
+        </header >
     )
 }
 
