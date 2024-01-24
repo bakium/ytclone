@@ -17,7 +17,9 @@ const PageHeader = () => {
                     <img src="/vite.svg" className="h-6" />
                 </a>
             </section>
-            <form className="sm:flex hidden justify-center flex-grow gap-4">
+            <form className={`justify-center flex-grow gap-4
+            ${showFullWidthSearch ? 'flex' : 'sm:flex hidden'}
+            `}>
                 <section className="flex flex-grow max-w-[500px]">
                     <input
                         type="search"
