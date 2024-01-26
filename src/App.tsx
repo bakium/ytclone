@@ -7,7 +7,7 @@ function App() {
       <PageHeader />
       <div className="grid grid-cols-[auto,1fr] flex-grow-1 overflow-auto">
         <aside>Side</aside>
-        <section className="overflow-x-hidden px-8 pb-4">
+        <section className="overflow-x-hidden px-2 lg:px-4 pb-4">
           <div className="sticky top-0 bg-white z-10 px-5 pb-4">
             <ul className="flex gap-2">
               <li>
