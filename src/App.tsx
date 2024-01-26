@@ -20,7 +20,7 @@ function App() {
               </li>
             </ul>
           </div>
-          <main className="min-h-[300px] min-w-[300px] bg-secondary
+          <main className="
             grid gap-2 grid-cols-[repeat(auto-fill,minmax(300px,1fr))]
           ">
             {videos.map((video) =>
