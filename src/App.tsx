@@ -18,12 +18,12 @@ function App() {
               </li>
             </ul>
           </div>
-          <main className="min-h-[400px] bg-secondary
+          <main className="min-h-[300px] min-w-[300px] bg-secondary
             grid gap-2 grid-cols-[repeat(auto-fill,minmax(300px,1fr))]
           ">
             {[...Array(5).keys()].map((_, i) =>
               <p
-                className="bg-secondary-hover flex justify-center items-center"
+                className="bg-secondary-hover flex justify-center items-center min-h-[200px]"
                 key={i + 1}>{`Video ${i + 1}`}
               </p>
             )}
