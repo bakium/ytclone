@@ -1,3 +1,5 @@
+import { formatDuration } from "../utils/formatDuration";
+
 type VideoGridItemProps = {
     id: string;
     title: string;
@@ -31,8 +33,8 @@ const VideoGridItem = ({
                     src={thumbnailUrl}
                     className="block h-full w-full object-cover rounded-xl"
                 />
-                <span className="absolute bottom-1 right-1.5 bg-secondary-dark text-secondary px-1 rounded-md">
-                    {duration}
+                <span className="absolute bottom-1 right-0.5 bg-secondary-dark text-secondary text-sm px-1 rounded-md">
+                    {formatDuration(duration)}
                 </span>
             </a>
             <section className="flex gap-2 flex-shrink-0">
