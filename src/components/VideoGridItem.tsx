@@ -26,11 +26,14 @@ const VideoGridItem = ({
     console.log(title, id, channel, views, postedAt, duration, thumbnailUrl, videoUrl)
     return (
         <article className="flex flex-col gap-2 mb-4">
-            <a href={`/watch?v=${id}`} className="aspect-video">
+            <a href={`/watch?v=${id}`} className="aspect-video relative">
                 <img
                     src={thumbnailUrl}
                     className="block h-full w-full object-cover rounded-xl"
                 />
+                <span className="absolute bottom-1 right-1.5 bg-secondary-dark text-secondary px-1 rounded-md">
+                    {duration}
+                </span>
             </a>
             <section className="flex gap-2 flex-shrink-0">
                 <a href={`@${channel.id}`}>
