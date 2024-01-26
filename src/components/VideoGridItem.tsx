@@ -15,6 +15,11 @@ type VideoGridItemProps = {
     videoUrl: string;
 }
 
+const VIEW_FORMATTER = Intl.NumberFormat('en-US', { notation: "compact" })
+// en-US is needed to get 1K
+// withou it we get 1 K
+// because of the browser locales
+
 const VideoGridItem = ({
     title,
     id,
@@ -52,10 +57,10 @@ const VideoGridItem = ({
                         href={`/@${channel.id}`}
                         className="text-secondary-text text-sm"
                     >
-                        {channel.name}</a>
+                    </a>
                     <span
                         className="text-secondary-text text-sm">
-                        {`${views} Views • ${postedAt.toString().length - 60} day ago`}
+                        {`${VIEW_FORMATTER.format(views)} Views • ${postedAt.toString().length - 60} day ago`}
                     </span>
                 </section>
             </section>
