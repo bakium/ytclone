@@ -1,6 +1,7 @@
 import { Button } from "./components/Button"
 import { VideoGridItem } from "./components/VideoGridItem"
 import { PageHeader } from "./layouts/PageHeader"
+import { videos } from "./data/videos"
 
 function App() {
   return (
@@ -22,8 +23,11 @@ function App() {
           <main className="min-h-[300px] min-w-[300px] bg-secondary
             grid gap-2 grid-cols-[repeat(auto-fill,minmax(300px,1fr))]
           ">
-            {[...Array(5).keys()].map((_, i) =>
-              <VideoGridItem>{`Video ${i + 1}`}</VideoGridItem>
+            {videos.map((video) =>
+              <VideoGridItem
+                key={video.id}
+                {...video}
+              />
             )}
           </main>
         </section>
