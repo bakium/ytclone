@@ -1,4 +1,5 @@
 import { formatDuration } from "../utils/formatDuration";
+import { formatTimeAgo } from "../utils/formatTimeAgo";
 
 type VideoGridItemProps = {
     id: string;
@@ -30,7 +31,6 @@ const VideoGridItem = ({
     thumbnailUrl,
     videoUrl,
 }: VideoGridItemProps) => {
-    console.log(title, id, channel, views, postedAt, duration, thumbnailUrl, videoUrl)
     return (
         <article className="flex flex-col gap-2 mb-4">
             <a href={`/watch?v=${id}`} className="aspect-video relative">
@@ -60,7 +60,7 @@ const VideoGridItem = ({
                     </a>
                     <span
                         className="text-secondary-text text-sm">
-                        {`${VIEW_FORMATTER.format(views)} Views • ${postedAt.toString().length - 60} day ago`}
+                        {`${VIEW_FORMATTER.format(views)} Views • ${formatTimeAgo(postedAt)}`}
                     </span>
                 </section>
             </section>
