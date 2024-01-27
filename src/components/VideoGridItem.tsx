@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { formatDuration } from "../utils/formatDuration";
 import { formatTimeAgo } from "../utils/formatTimeAgo";
 
@@ -31,9 +32,14 @@ const VideoGridItem = ({
     thumbnailUrl,
     videoUrl,
 }: VideoGridItemProps) => {
+    const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+
     return (
-        <article className="flex flex-col gap-2 mb-4">
-            <a href={`/watch?v=${id}`} className="aspect-video relative">
+        <article className="flex flex-col gap-2 mb-4" >
+            <a href={`/watch?v=${id}`} className="aspect-video relative"
+                onMouseEnter={() => setIsVideoPlaying(true)}
+                onMouseLeave={() => setIsVideoPlaying(false)}
+            >
                 <img
                     src={thumbnailUrl}
                     className="block h-full w-full object-cover rounded-xl"
@@ -42,7 +48,9 @@ const VideoGridItem = ({
                     {formatDuration(duration)}
                 </span>
                 <video src={videoUrl}
-                    className="block absolute h-full object-cover inset-0"
+                    className={`block absolute h-full object-cover inset-0
+                        ${isVideoPlaying ? "opacity-100" : "opacity-0"}
+                    `}
                     muted playsInline
                 />
             </a>
@@ -70,7 +78,7 @@ const VideoGridItem = ({
                     </span>
                 </section>
             </section>
-        </article>
+        </article >
     )
 }
 
