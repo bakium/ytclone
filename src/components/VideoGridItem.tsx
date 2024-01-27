@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { formatDuration } from "../utils/formatDuration";
 import { formatTimeAgo } from "../utils/formatTimeAgo";
 
@@ -33,6 +33,18 @@ const VideoGridItem = ({
     videoUrl,
 }: VideoGridItemProps) => {
     const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+    const videoRef = useRef<HTMLVideoElement>(null)
+
+    useEffect(() => {
+        if (videoRef.current == null) return
+
+        if (isVideoPlaying) {
+            videoRef.current.currentTime = 0
+            videoRef.current.play()
+        } else {
+            videoRef.current.pause()
+        }
+    }, [isVideoPlaying])
 
     return (
         <article className="flex flex-col gap-2 mb-4" >
@@ -52,6 +64,7 @@ const VideoGridItem = ({
                         ${isVideoPlaying ? "opacity-100" : "opacity-0"}
                     `}
                     muted playsInline
+                    ref={videoRef}
                 />
             </a>
             <section className="flex gap-2 flex-shrink-0">
