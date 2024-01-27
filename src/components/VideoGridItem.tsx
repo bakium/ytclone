@@ -38,12 +38,12 @@ const VideoGridItem = ({
                     src={thumbnailUrl}
                     className="block h-full w-full object-cover rounded-xl"
                 />
-                <span className="absolute bottom-1 right-0.5 bg-secondary-dark text-secondary text-sm px-1 rounded-md">
+                <span className="absolute bottom-1 right-1 bg-secondary-dark text-secondary text-sm px-1 rounded-md">
                     {formatDuration(duration)}
                 </span>
             </a>
             <section className="flex gap-2 flex-shrink-0">
-                <a href={`@${channel.id}`}>
+                <a href={`@${channel.id}`} className="flex-shrink-0">
                     <img src={channel.profileUrl}
                         alt={channel.name}
                         className="w-10 h-10 rounded-full"
