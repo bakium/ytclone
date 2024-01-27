@@ -54,14 +54,15 @@ const VideoGridItem = ({
             >
                 <img
                     src={thumbnailUrl}
-                    className="block h-full w-full object-cover rounded-xl"
+                    className={`block h-full w-full object-cover transition-[border-radius] duration-200
+                    ${isVideoPlaying ? "border-none" : "rounded-xl"}`}
                 />
                 <span className="absolute bottom-1 right-1 bg-secondary-dark text-secondary text-sm px-1 rounded-md">
                     {formatDuration(duration)}
                 </span>
                 <video src={videoUrl}
-                    className={`block absolute h-full object-cover inset-0
-                        ${isVideoPlaying ? "opacity-100" : "opacity-0"}
+                    className={`block absolute h-full object-cover inset-0 transition-opacity duration-200
+                        ${isVideoPlaying ? "opacity-100 delay-200" : "opacity-0"}
                     `}
                     muted playsInline
                     ref={videoRef}
