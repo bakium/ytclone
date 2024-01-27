@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { formatDuration } from "../utils/formatDuration";
 import { formatTimeAgo } from "../utils/formatTimeAgo";
 
@@ -31,19 +32,45 @@ const VideoGridItem = ({
     thumbnailUrl,
     videoUrl,
 }: VideoGridItemProps) => {
+    const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+    const videoRef = useRef<HTMLVideoElement>(null)
+
+    useEffect(() => {
+        if (videoRef.current == null) return
+
+        if (isVideoPlaying) {
+            videoRef.current.currentTime = 0
+            videoRef.current.play()
+        } else {
+            videoRef.current.pause()
+        }
+    }, [isVideoPlaying])
+
     return (
-        <article className="flex flex-col gap-2 mb-4">
-            <a href={`/watch?v=${id}`} className="aspect-video relative">
+        <article className="flex flex-col gap-2 mb-4" >
+            <a href={`/watch?v=${id}`} className="aspect-video relative"
+                onMouseEnter={() => setIsVideoPlaying(true)}
+                onMouseLeave={() => setIsVideoPlaying(false)}
+            >
                 <img
                     src={thumbnailUrl}
-                    className="block h-full w-full object-cover rounded-xl"
+                    className={`block h-full w-full object-cover transition-[border-radius] duration-200
+                    ${isVideoPlaying ? "border-none" : "rounded-xl"}`}
                 />
-                <span className="absolute bottom-1 right-0.5 bg-secondary-dark text-secondary text-sm px-1 rounded-md">
+                <span className="absolute bottom-1 right-1 bg-secondary-dark text-secondary text-sm px-1 rounded-md">
                     {formatDuration(duration)}
                 </span>
+                <video src={videoUrl}
+                    className={`block absolute h-full object-cover inset-0 transition-opacity duration-200
+                        ${isVideoPlaying ? "opacity-100 delay-200" : "opacity-0"}
+                    `}
+                    muted playsInline
+                    ref={videoRef}
+                />
             </a>
             <section className="flex gap-2 flex-shrink-0">
-                <a href={`@${channel.id}`}>
+                <a href={`@${channel.id}`} className="flex-shrink-0">
+
                     <img src={channel.profileUrl}
                         alt={channel.name}
                         className="w-10 h-10 rounded-full"
@@ -57,6 +84,7 @@ const VideoGridItem = ({
                         href={`/@${channel.id}`}
                         className="text-secondary-text text-sm"
                     >
+                        {channel.name}
                     </a>
                     <span
                         className="text-secondary-text text-sm">
@@ -64,7 +92,7 @@ const VideoGridItem = ({
                     </span>
                 </section>
             </section>
-        </article>
+        </article >
     )
 }
 
