@@ -41,6 +41,10 @@ const VideoGridItem = ({
                 <span className="absolute bottom-1 right-1 bg-secondary-dark text-secondary text-sm px-1 rounded-md">
                     {formatDuration(duration)}
                 </span>
+                <video src={videoUrl}
+                    className="block absolute h-full object-cover inset-0"
+                    muted playsInline
+                />
             </a>
             <section className="flex gap-2 flex-shrink-0">
                 <a href={`@${channel.id}`} className="flex-shrink-0">
