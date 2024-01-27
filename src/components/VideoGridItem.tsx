@@ -44,6 +44,7 @@ const VideoGridItem = ({
             </a>
             <section className="flex gap-2 flex-shrink-0">
                 <a href={`@${channel.id}`} className="flex-shrink-0">
+
                     <img src={channel.profileUrl}
                         alt={channel.name}
                         className="w-10 h-10 rounded-full"
@@ -57,6 +58,7 @@ const VideoGridItem = ({
                         href={`/@${channel.id}`}
                         className="text-secondary-text text-sm"
                     >
+                        {channel.name}
                     </a>
                     <span
                         className="text-secondary-text text-sm">
