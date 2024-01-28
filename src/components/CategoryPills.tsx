@@ -3,9 +3,10 @@ import { Button } from "./Button"
 type CategoryPillsProps = {
     categories: string[],
     selectedCategory: string,
+    onSelect: (category: string) => void,
 }
 
-export const CategoryPills = ({ categories, selectedCategory }: CategoryPillsProps) => {
+export const CategoryPills = ({ categories, selectedCategory, onSelect }: CategoryPillsProps) => {
     return (
         <ul className="flex gap-3 w-[max-content]">
             {categories.map(category => (
@@ -14,6 +15,7 @@ export const CategoryPills = ({ categories, selectedCategory }: CategoryPillsPro
                     <Button
                         variant={selectedCategory === category ? "dark" : "default"}
                         className="whitespace-nowrap text-sm py-1 px-3 rounded-lg"
+                        onClick={() => onSelect(category)}
                     >
                         {category}
                     </Button>

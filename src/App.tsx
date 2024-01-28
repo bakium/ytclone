@@ -6,7 +6,7 @@ import { categories } from "./data/categories"
 import { useState } from "react"
 
 function App() {
-  const [selectedCategory] = useState(categories[0])
+  const [selectedCategory, setSelectedCategory] = useState(categories[0])
   return (
     <div className="max-h-screen flex flex-col">
       <PageHeader />
@@ -17,6 +17,7 @@ function App() {
             <CategoryPills
               categories={categories}
               selectedCategory={selectedCategory}
+              onSelect={setSelectedCategory}
             />
           </div>
           <main className="
