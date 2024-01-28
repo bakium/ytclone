@@ -3,8 +3,10 @@ import { PageHeader } from "./layouts/PageHeader"
 import { videos } from "./data/videos"
 import { CategoryPills } from "./components/CategoryPills"
 import { categories } from "./data/categories"
+import { useState } from "react"
 
 function App() {
+  const [selectedCategory] = useState(categories[0])
   return (
     <div className="max-h-screen flex flex-col">
       <PageHeader />
@@ -14,6 +16,7 @@ function App() {
           <div className="sticky top-0 bg-white z-10 px-5 pb-4">
             <CategoryPills
               categories={categories}
+              selectedCategory={selectedCategory}
             />
           </div>
           <main className="
