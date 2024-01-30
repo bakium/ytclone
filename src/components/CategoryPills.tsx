@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "./Button"
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 type CategoryPillsProps = {
     categories: string[],
@@ -12,11 +12,15 @@ const TRANSLATE_AMOUNT = 250
 
 export const CategoryPills = ({ categories, selectedCategory, onSelect }: CategoryPillsProps) => {
     const [translate, setTranslate] = useState(0)
+    const translateRef = useRef<HTMLUListElement>(null)
     const [isLeftVisible, setIsLeftVisible] = useState(true)
     const [isRightVisible, setIsRightVisible] = useState(true)
 
     return (
-        <section className="overflow-x-hidden relative">
+        <section
+            className="overflow-x-hidden relative"
+            ref={translateRef}
+        >
             <ul className="flex gap-3 w-[max-content] transition-transform"
                 style={{ transform: `translateX(-${translate}px)` }}
             >
@@ -59,8 +63,13 @@ export const CategoryPills = ({ categories, selectedCategory, onSelect }: Catego
                     variant="ghost"
                     className="h-full w-auto aspect-square p-1.5"
                     onClick={() => setTranslate(translate => {
-                        console.log(translate);
-                        return translate + TRANSLATE_AMOUNT
+                        if (translateRef.current == null) return 0
+
+                        const newTranslate = translate + TRANSLATE_AMOUNT
+                        const { clientWidth, scrollWidth } = translateRef.current
+
+                        if (newTranslate + clientWidth >= scrollWidth) return scrollWidth - clientWidth
+                        return newTranslate
                     })}
                 >
                     <ChevronRight strokeWidth={2} />
