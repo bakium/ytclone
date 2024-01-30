@@ -8,13 +8,18 @@ type CategoryPillsProps = {
     onSelect: (category: string) => void,
 }
 
+const TRANSLATE_AMOUNT = 250
+
 export const CategoryPills = ({ categories, selectedCategory, onSelect }: CategoryPillsProps) => {
+    const [translate, setTranslate] = useState(0)
     const [isLeftVisible, setIsLeftVisible] = useState(true)
     const [isRightVisible, setIsRightVisible] = useState(true)
 
     return (
         <section className="overflow-x-hidden relative">
-            <ul className="flex gap-3 w-[max-content]">
+            <ul className="flex gap-3 w-[max-content] transition-transform"
+                style={{ transform: `translateX(-${translate}px)` }}
+            >
                 {categories.map(category => (
                     <li key={category}
                     >
@@ -35,6 +40,11 @@ export const CategoryPills = ({ categories, selectedCategory, onSelect }: Catego
                     size="icon"
                     variant="ghost"
                     className="h-full w-auto aspect-square p-1.5"
+                    onClick={() => setTranslate(translate => {
+                        const newTranslate = translate - TRANSLATE_AMOUNT
+                        if (newTranslate <= 0) return 0
+                        return newTranslate
+                    })}
                 >
                     <ChevronLeft strokeWidth={2} />
                 </Button>
@@ -48,6 +58,10 @@ export const CategoryPills = ({ categories, selectedCategory, onSelect }: Catego
                     size="icon"
                     variant="ghost"
                     className="h-full w-auto aspect-square p-1.5"
+                    onClick={() => setTranslate(translate => {
+                        console.log(translate);
+                        return translate + TRANSLATE_AMOUNT
+                    })}
                 >
                     <ChevronRight strokeWidth={2} />
                 </Button>
