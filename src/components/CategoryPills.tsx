@@ -9,7 +9,7 @@ type CategoryPillsProps = {
 
 export const CategoryPills = ({ categories, selectedCategory, onSelect }: CategoryPillsProps) => {
     return (
-        <section className="overflow-x-hidden">
+        <section className="overflow-x-hidden relative">
             <ul className="flex gap-3 w-[max-content]">
                 {categories.map(category => (
                     <li key={category}
@@ -23,25 +23,27 @@ export const CategoryPills = ({ categories, selectedCategory, onSelect }: Catego
                         </Button>
                     </li>))}
             </ul>
-            <span>
+            <span className="absolute left-0 top-1/2 hover:-translate-y-1/2">
                 <Button
                     size="icon"
                     variant="dark"
                     className="h-full w-auto aspect-square p-1.5"
+                    style={{ background: 'orange' }}
                 >
-                    <ChevronLeft />
+                    <ChevronLeft style={{ background: 'green' }} />
                 </Button>
             </span>
-            <span>
+            <span className="absolute right-0 top-1/2 hover:-translate-y-1/2">
                 <Button
                     size="icon"
                     variant="dark"
                     className="h-full w-auto aspect-square p-1.5"
+                    style={{ background: 'orange' }}
                 >
-                    <ChevronRight />
+                    <ChevronRight style={{ background: 'green' }} />
                 </Button>
-            </span>
-        </section>
+            </span >
+        </section >
     )
 }
 
