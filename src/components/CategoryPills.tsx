@@ -1,3 +1,4 @@
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "./Button"
 
 type CategoryPillsProps = {
@@ -22,6 +23,22 @@ export const CategoryPills = ({ categories, selectedCategory, onSelect }: Catego
                         </Button>
                     </li>))}
             </ul>
+            <span>
+                <Button
+                    size="icon"
+                    variant="dark"
+                >
+                    <ChevronLeft />
+                </Button>
+            </span>
+            <span>
+                <Button
+                    size="icon"
+                    variant="dark"
+                >
+                    <ChevronRight />
+                </Button>
+            </span>
         </section>
     )
 }
