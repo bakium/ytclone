@@ -8,19 +8,21 @@ type CategoryPillsProps = {
 
 export const CategoryPills = ({ categories, selectedCategory, onSelect }: CategoryPillsProps) => {
     return (
-        <ul className="flex gap-3 w-[max-content]">
-            {categories.map(category => (
-                <li key={category}
-                >
-                    <Button
-                        variant={selectedCategory === category ? "dark" : "default"}
-                        className="whitespace-nowrap text-sm py-1 px-3 rounded-lg"
-                        onClick={() => onSelect(category)}
+        <section className="overflow-x-hidden">
+            <ul className="flex gap-3 w-[max-content]">
+                {categories.map(category => (
+                    <li key={category}
                     >
-                        {category}
-                    </Button>
-                </li>))}
-        </ul>
+                        <Button
+                            variant={selectedCategory === category ? "dark" : "default"}
+                            className="whitespace-nowrap text-sm py-1 px-3 rounded-lg"
+                            onClick={() => onSelect(category)}
+                        >
+                            {category}
+                        </Button>
+                    </li>))}
+            </ul>
+        </section>
     )
 }
 
