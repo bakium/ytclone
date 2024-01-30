@@ -27,6 +27,7 @@ export const CategoryPills = ({ categories, selectedCategory, onSelect }: Catego
                 <Button
                     size="icon"
                     variant="dark"
+                    className="h-full w-auto aspect-square p-1.5"
                 >
                     <ChevronLeft />
                 </Button>
@@ -35,6 +36,7 @@ export const CategoryPills = ({ categories, selectedCategory, onSelect }: Catego
                 <Button
                     size="icon"
                     variant="dark"
+                    className="h-full w-auto aspect-square p-1.5"
                 >
                     <ChevronRight />
                 </Button>
