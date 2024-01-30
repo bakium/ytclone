@@ -23,24 +23,22 @@ export const CategoryPills = ({ categories, selectedCategory, onSelect }: Catego
                         </Button>
                     </li>))}
             </ul>
-            <span className="absolute left-0 top-1/2 hover:-translate-y-1/2">
+            <span className="absolute left-0 top-1/2 -translate-y-1/2">
                 <Button
                     size="icon"
-                    variant="dark"
+                    variant="ghost"
                     className="h-full w-auto aspect-square p-1.5"
-                    style={{ background: 'orange' }}
                 >
-                    <ChevronLeft style={{ background: 'green' }} />
+                    <ChevronLeft />
                 </Button>
             </span>
-            <span className="absolute right-0 top-1/2 hover:-translate-y-1/2">
+            <span className="absolute right-0 top-1/2 -translate-y-1/2">
                 <Button
                     size="icon"
-                    variant="dark"
+                    variant="ghost"
                     className="h-full w-auto aspect-square p-1.5"
-                    style={{ background: 'orange' }}
                 >
-                    <ChevronRight style={{ background: 'green' }} />
+                    <ChevronRight />
                 </Button>
             </span >
         </section >
