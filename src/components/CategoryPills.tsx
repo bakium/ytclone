@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "./Button"
+import { useState } from "react"
 
 type CategoryPillsProps = {
     categories: string[],
@@ -8,6 +9,9 @@ type CategoryPillsProps = {
 }
 
 export const CategoryPills = ({ categories, selectedCategory, onSelect }: CategoryPillsProps) => {
+    const [isLeftVisible, setIsLeftVisible] = useState(true)
+    const [isRightVisible, setIsRightVisible] = useState(true)
+
     return (
         <section className="overflow-x-hidden relative">
             <ul className="flex gap-3 w-[max-content]">
@@ -23,7 +27,7 @@ export const CategoryPills = ({ categories, selectedCategory, onSelect }: Catego
                         </Button>
                     </li>))}
             </ul>
-            <span className="absolute left-0 top-1/2 -translate-y-1/2
+            {isLeftVisible && <span className="absolute left-0 top-1/2 -translate-y-1/2
                 bg-gradient-to-r from-white from-50% to-transparent w-24 h-full
                 flex justify-begin
             ">
@@ -35,7 +39,8 @@ export const CategoryPills = ({ categories, selectedCategory, onSelect }: Catego
                     <ChevronLeft strokeWidth={2} />
                 </Button>
             </span>
-            <span className="absolute right-0 top-1/2 -translate-y-1/2
+            }
+            {isRightVisible && <span className="absolute right-0 top-1/2 -translate-y-1/2
                 bg-gradient-to-l from-white from-50% to-transparent w-24 h-full
                 flex justify-end
             ">
@@ -47,6 +52,7 @@ export const CategoryPills = ({ categories, selectedCategory, onSelect }: Catego
                     <ChevronRight strokeWidth={2} />
                 </Button>
             </span >
+            }
         </section >
     )
 }
