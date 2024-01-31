@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "./Button"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 
 type CategoryPillsProps = {
     categories: string[],
@@ -8,13 +8,27 @@ type CategoryPillsProps = {
     onSelect: (category: string) => void,
 }
 
-const TRANSLATE_AMOUNT = 250
+const TRANSLATE_AMOUNT = 200
 
 export const CategoryPills = ({ categories, selectedCategory, onSelect }: CategoryPillsProps) => {
     const [translate, setTranslate] = useState(0)
     const translateRef = useRef<HTMLUListElement>(null)
     const [isLeftVisible, setIsLeftVisible] = useState(true)
     const [isRightVisible, setIsRightVisible] = useState(true)
+
+    useEffect(() => {
+        if (translateRef.current == null) return
+
+        const observer = new ResizeObserver(entries => {
+            const { target } = entries[0]
+            setIsLeftVisible(translate > 0)
+            setIsRightVisible(target.scrollWidth > target.clientWidth + translate)
+        })
+        observer.observe(translateRef.current)
+
+        return () => observer.disconnect()
+
+    }, [categories, translate])
 
     return (
         <section
